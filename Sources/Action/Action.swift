@@ -88,7 +88,7 @@ public final class Action<Input, Element> {
                     return Observable.empty()
                 }
             }
-            .share()
+            .share(replay: 1)
 
         elements = executionObservables
             .flatMap { $0.catchError { _ in Observable.empty() } }
